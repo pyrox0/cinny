@@ -48,6 +48,7 @@ export enum Command {
   MyRoomAvatar = 'myroomavatar',
   ConvertToDm = 'converttodm',
   ConvertToRoom = 'converttoroom',
+  Nix = 'nix',
 }
 
 export type CommandContent = {
@@ -63,6 +64,11 @@ export const useCommands = (mx: MatrixClient, room: Room): CommandRecord => {
 
   const commands: CommandRecord = useMemo(
     () => ({
+      [Command.Nix]: {
+        name: Command.Nix,
+        description: 'Link to nixpkgs PR or issue.',
+        exe: async () => undefined,
+      },
       [Command.Me]: {
         name: Command.Me,
         description: 'Send action message',
