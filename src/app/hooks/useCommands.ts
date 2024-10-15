@@ -159,6 +159,8 @@ export enum Command {
   UnFlip = 'unflip',
   Delete = 'delete',
   Acl = 'acl',
+  NixIssue = 'nixi',
+  NixPR = 'nixp',
 }
 
 export type CommandContent = {
@@ -174,6 +176,16 @@ export const useCommands = (mx: MatrixClient, room: Room): CommandRecord => {
 
   const commands: CommandRecord = useMemo(
     () => ({
+      [Command.NixPR]: {
+        name: Command.NixPR,
+        description: 'Link to nixpkgs PR.',
+        exe: async () => undefined,
+      },
+      [Command.NixIssue]: {
+        name: Command.NixIssue,
+        description: 'Link to nixpkgs issue.',
+        exe: async () => undefined,
+      },
       [Command.Me]: {
         name: Command.Me,
         description: 'Send action message',

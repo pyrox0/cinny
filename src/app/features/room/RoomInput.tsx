@@ -327,6 +327,12 @@ export const RoomInput = forwardRef<HTMLDivElement, RoomInputProps>(
       } else if (commandName === Command.UnFlip) {
         plainText = `${UNFLIP} ${plainText}`;
         customHtml = `${UNFLIP} ${customHtml}`;
+      } else if (commandName === Command.NixIssue) {
+        plainText = `https://github.com/nixos/nixpkgs/issues/${plainText}`;
+        customHtml = `https://github.com/nixos/nixpkgs/issues/${customHtml}`;
+      } else if (commandName === Command.NixPR) {
+        plainText = `https://github.com/nixos/nixpkgs/pull/${plainText}`;
+        customHtml = `https://github.com/nixos/nixpkgs/pull/${customHtml}`;
       } else if (commandName) {
         const commandContent = commands[commandName as Command];
         if (commandContent) {
